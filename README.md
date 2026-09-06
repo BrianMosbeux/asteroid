@@ -1,22 +1,32 @@
 ## feature ideas:
 
-- Add a scoring system
-- Implement multiple lives and respawning
-- Add an explosion effect for the asteroids
-- Add acceleration to the player movement
 - Make the objects wrap around the screen instead of disappearing
 - Add a background image
-- Create different weapon types
-- Make the asteroids lumpy instead of perfectly round
-- Make the ship have a triangular hit box instead of a circular one
-- Add a shield power-up
-- Add a speed power-up
-- Add bombs that can be dropped
-- Add resources dropped by asteroid upon destruction
-- Add Asteroid collision
-- Add asteroids type (resource drop)
+- Make a larger screen and add camera
 - Add maps and asteroid fields
-- Add based
+- Add base
 - Add sound effects
 - Add music
 - Add gravity
+
+## Player upgrade
+
+- Make the ship have a triangular hit box instead of a circular one
+- Implement multiple lives and respawning
+- Add acceleration to the player movement
+- Create different weapon types
+- Add a shield power-up
+- Add a speed power-up
+- Add bombs that can be dropped
+
+## Asteroid upgrade
+
+- Add an explosion effect for the asteroids
+- Make the asteroids lumpy instead of perfectly round
+- Add resources dropped by asteroid upon destruction
+- Add Asteroid collision
+- Add asteroids type (resource drop)
+
+## HUD
+
+- Add a scoring system
