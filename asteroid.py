@@ -1,8 +1,10 @@
 import pygame
 from circleshape import CircleShape
+from reward import Scrap
 from constants import ASTEROID_MIN_RADIUS, LINE_WIDTH
 from logger import log_event
 import random
+
 
 class Asteroid(CircleShape):
     def __init__(self, x: float, y: float, radius: float) -> None:
@@ -17,6 +19,7 @@ class Asteroid(CircleShape):
     def split(self):
         self.kill()
         if self.radius <= ASTEROID_MIN_RADIUS:
+            scrap = Scrap(x=self.position.x, y= self.position.y)
             return
         log_event("asteroid_split")
         angle = random.uniform(a=20, b=30)
