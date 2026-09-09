@@ -1,5 +1,6 @@
 import sys
 import pygame
+from score import Score
 from logger import log_event
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from logger import log_state
@@ -32,10 +33,12 @@ def main():
     Scrap.containers = (updatable, drawable, scraps)
     # Instantiate player
     player = Player(x=SCREEN_WIDTH / 2, y=SCREEN_HEIGHT /2)
+    score = Score()
     asteroidfield = AsteroidField()
     # Start game loop
     while True:
         log_state()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
@@ -55,10 +58,11 @@ def main():
             if scrap.collides_with(player):
                 log_event("scrap_collected")
                 player.scraps += scrap.value
-                print(f"scraps: {player.scraps}")
                 scrap.kill()
         for d in drawable:
             d.draw(screen)
+
+        score.draw(screen, player.scraps)
         pygame.display.flip()
         dt = clock.tick(60) / 1000
 
