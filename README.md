@@ -1,5 +1,7 @@
 ## feature ideas:
 
+### World
+
 - Make the objects wrap around the screen instead of disappearing
 - Add a background image
 - Make a larger screen and add camera
@@ -9,24 +11,24 @@
 - Add music
 - Add gravity
 
-## Player upgrade
+### Player upgrade
 
 - Make the ship have a triangular hit box instead of a circular one
 - Implement multiple lives and respawning
-- Add acceleration to the player movement
+- [x] Add acceleration to the player movement
 - Create different weapon types
 - Add a shield power-up
 - Add a speed power-up
 - Add bombs that can be dropped
 
-## Asteroid upgrade
+### Asteroid upgrade
 
 - Add an explosion effect for the asteroids
 - Make the asteroids lumpy instead of perfectly round
-- Add resources dropped by asteroid upon destruction
+- [x] Add resources dropped by asteroid upon destruction
 - Add Asteroid collision
 - Add asteroids type (resource drop)
 
-## HUD
+### HUD
 
-- Add a scoring system
+- [x] Add a scoring system
