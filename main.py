@@ -1,6 +1,6 @@
 import sys
 import pygame
-from score import Score
+from hud import EnergyCount, ScrapCount
 from logger import log_event
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from logger import log_state
@@ -33,7 +33,8 @@ def main():
     Scrap.containers = (updatable, drawable, scraps)
     # Instantiate player
     player = Player(x=SCREEN_WIDTH / 2, y=SCREEN_HEIGHT /2)
-    score = Score()
+    scrap_count = ScrapCount()
+    energy_count = EnergyCount()
     asteroidfield = AsteroidField()
     # Start game loop
     while True:
@@ -62,7 +63,9 @@ def main():
         for d in drawable:
             d.draw(screen)
 
-        score.draw(screen, player.scraps)
+        scrap_count.draw(screen, player.scraps)
+        energy_count.draw(screen, player.energy)
+
         pygame.display.flip()
         dt = clock.tick(60) / 1000
 

@@ -10,7 +10,7 @@ class Player(CircleShape):
         self.cooldown = 0
         self.speed = 0
         self.scraps = 0
-        self.energy = 100
+        self.energy = 1000
 
     def triangle(self) -> list[pygame.Vector2]:
         radius = self.radius * 1.1
