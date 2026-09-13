@@ -10,13 +10,15 @@ class Player(CircleShape):
         self.cooldown = 0
         self.speed = 0
         self.scraps = 0
+        self.energy = 100
 
     def triangle(self) -> list[pygame.Vector2]:
+        radius = self.radius * 1.1
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
-        right = pygame.Vector2(0, 1).rotate(self.rotation + 90) * self.radius / 1.5
-        a = self.position + forward * self.radius
-        b = self.position - forward * self.radius - right
-        c = self.position - forward * self.radius + right
+        right = pygame.Vector2(0, 1).rotate(self.rotation + 90) * radius / 1.5
+        a = self.position + forward * radius
+        b = self.position - forward * radius - right
+        c = self.position - forward * radius + right
         return [a, b, c]
 
     def draw(self, screen):
@@ -35,11 +37,13 @@ class Player(CircleShape):
         if keys[pygame.K_d]:
             self.rotate(dt)
         if keys[pygame.K_w]:
-            self.speed += PLAYER_ACCELERATION
+            self.speed += self.acceleration()
         if keys[pygame.K_s]:
-            self.speed -= PLAYER_ACCELERATION
+            self.speed -= self.acceleration()
         if keys[pygame.K_SPACE]:
             self.shoot()
+        if keys[pygame.K_LSHIFT]:
+            self.speed += PLAYER_ACCELERATION
         self.move(dt)
         self.speed *= DRAG_COEFICIENT
 
@@ -49,6 +53,12 @@ class Player(CircleShape):
         rotated_vector = unit_vector.rotate(self.rotation)
         rotated_vector_with_speed = rotated_vector * self.speed * dt
         self.position += rotated_vector_with_speed
+    
+    def acceleration(self):
+        if self.energy > 0:
+            self.energy -= 1
+            return PLAYER_ACCELERATION
+        return 0
 
     def shoot(self):
         if self.cooldown > 0:
@@ -56,8 +66,3 @@ class Player(CircleShape):
         self.cooldown = PLAYER_SHOOT_COOLDOWN_SECONDS
         shot = Shot(self.position.x, self.position.y)
         shot.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOOT_SPEED 
-
-
-
-
-
